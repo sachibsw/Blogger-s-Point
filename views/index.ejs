@@ -1,0 +1,114 @@
+<%include ./partials/header %> 
+ <% blogs.forEach(function(blog){%>
+<div class="ui internally celled  computer tablet only grid">
+    <div class="row">
+    <div class="column sizeadj">
+        <div class="ui main segment">
+           <div class="item">
+            <div class="ui internally celled computer only grid">
+            <div class="row">
+                <div class="five wide column image fluid">
+                    <img src="<%=blog.image%>" alt="     You should add an image here...!!!" class="img1">
+                </div>
+                <div class="eleven wide column fluid sizeadj">
+                    <div class="content">
+                      <a href="/blogs/<%=blog._id%>" class="header"><u><%= blog.title%></u></a>
+                    </div>
+                    <div class="meta" style="font-size:0.7em"><span>(Uploaded on:<%= blog.created.toDateString()%>)</span></div>
+                    <br>
+                    <div class="content">
+                      <span class="description"><strong>Category&nbsp&nbsp:&nbsp&nbsp</strong><%= blog.category%></span>
+                    </div>
+                    <div class="content">
+                    <span class="description">
+                        <strong>
+                            Author &nbsp&nbsp:&nbsp&nbsp
+                        </strong><%= blog.author%>
+                    </span>
+                    </div>
+                    <div class="description">
+                      <p><%=blog.body.substring(0,100)%>...<a href="/blogs/<%=blog._id%>">Continue reading</a></p>
+                    </div>
+                    <br>
+                     <% if(blog.author===cUser.username){%>
+                        <a href="/blogs/<%=blog._id%>/edit" class="ui inverted green button">EDIT</a>
+                        <form class="ui form delete" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+                           <button class="ui red inverted button">DELETE</button>
+                       </form>
+                    <% }%>
+                   <span class="ui segment fb">Connect with us on : &nbsp<a href="https://www.facebook.com/groups/bloggersfunda/"><i class="facebook icon"></i></a></span>
+            </div>
+            </div>
+           </div>
+           </div>
+        </div>
+    </div>
+     <div class="three wide column">
+            <br>
+            <img class="imgheight" src="http://thetravelhack.com/wp-content/uploads/2012/01/blogging.jpg"> 
+            <p class="p">
+                <a href="https://www.google.co.in/search?q=<%= blog.category%>+<%= blog.title%>+blogs&ie=utf-8&oe=utf-8&client=firefox-b&gfe_rd=cr&dcr=0&ei=17LQWpLfD8a3vAT0uJqIBw"> 
+                Click here</a> to find more interesting blogs like this...
+            </p>
+            <hr>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+
+<div class="ui  mobile only grid stackable">
+    <div style="margin-top:4.0em"></div>
+    <div class="sizeadj1">
+        <div class="ui segment">
+                <div class="image">
+                    <img src="<%=blog.image%>" alt="     You should add an image here...!!!" class="img1">
+                </div>
+                <div class="">
+                    <div class="content">
+                      <a href="/blogs/<%=blog._id%>" class="header"><u><%= blog.title%></u></a>
+                    </div>
+                    <div class="meta" style="font-size:0.7em"><span>(Uploaded on:<%= blog.created.toDateString()%>)</span></div>
+                    <br>
+                    <div class="content">
+                      <span class="description"><strong>Category&nbsp&nbsp:&nbsp&nbsp</strong><%= blog.category%></span>
+                    </div>
+                    <div class="content">
+                    <span class="description">
+                        <strong>
+                            Author &nbsp&nbsp:&nbsp&nbsp
+                        </strong><%= blog.author%>
+                    </span>
+                    </div>
+                    <div class="description">
+                      <p><%=blog.body.substring(0,100)%>...<a href="/blogs/<%=blog._id%>">Continue reading</a></p>
+                    </div>
+                    <br>
+                     <% if(blog.author===cUser.username){%>
+                        <a href="/blogs/<%=blog._id%>/edit" class="ui inverted green button">EDIT</a>
+                        <form class="ui form delete" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+                           <button class="ui red inverted button">DELETE</button>
+                       </form>
+                    <% }%>
+                    <br>
+                    <br>
+                   <div class="ui fb">Connect with us on : &nbsp<a href="https://www.facebook.com/groups/bloggersfunda/"><i class="facebook icon"></i></a></div>
+            </div>
+            </div>
+            <br>
+            <div>  
+            <!--<img class="imgheight" src="http://thetravelhack.com/wp-content/uploads/2012/01/blogging.jpg"> -->
+            <p class="p">
+                <a href="https://www.google.co.in/search?q=<%= blog.category%>+<%= blog.title%>+blogs&ie=utf-8&oe=utf-8&client=firefox-b&gfe_rd=cr&dcr=0&ei=17LQWpLfD8a3vAT0uJqIBw"> 
+                Click here</a> to find more interesting blogs like this...
+            </p>
+            </div>
+            <br>
+            <hr>
+    </div>
+</div>
+    <% })%>
+<%include ./partials/footer %>

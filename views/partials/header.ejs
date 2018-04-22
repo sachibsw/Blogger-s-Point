@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogger's Point</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" type="text/css">
+	<link rel="stylesheet" href="/stylesheet/app.css" type="text/css">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="ui tablet computer only fixed grey inverted menu grid ">
+        <div class="head1 item"><i class="blogger b icon"></i>Blogger's Point</div>
+        <a href="/blogs" class="item">Home</a>
+        <a href="/mypost" class="item">Your Posts</a>
+        <a href="/blogs/new" class="item">Create New</a>
+        <span class="item right" style="font-size:1.3rem">Logged in as:&nbsp&nbsp<strong><%= cUser.username %></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/logout">Logout</a></span>
+</div>
+<!--<div class="ui fixed grey inverted menu mobile only">-->
+<!--        <div class="head1 item"><i class="blogger b icon"></i>Blogger's Point</div>-->
+<!--        <a href="/blogs" class="item">Home</a>-->
+<!--        <a href="/mypost" class="item">Your Posts</a>-->
+<!--        <a href="/blogs/new" class="item">Create New</a>-->
+<!--        <span class="item right" style="font-size:1.3rem">Logged in as:&nbsp&nbsp<strong><%= cUser.username %></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/logout">Logout</a></span>-->
+<!--</div>-->
+<div class="ui menu mobile only fixed grey inverted grid" style="padding-top:0px">
+    <a class="head1 item"><i class="blogger b icon"></i>Blogger's Point</a>
+    <a href="/blogs" class="item">Home</a>
+        <span class="ui dropdown pointing item" id="mydropdown">
+       <span id="dropbtn">Menu</span><i class="dropdown icon"></i>
+    <div class="menu">
+        <a href="/mypost" class="item">Your Posts</a>
+        <a href="/blogs/new" class="item">Create New</a>
+        <a class="item" style="font-size:1.3rem">Logged in as:</a>
+        <a class="item"><%= cUser.username %></a>
+        <a href="/logout" class="item">Logout</a>
+    </div>
+    </span>
+</div>
+// <script>
+// function myFunction() {
+//     document.getElementByClassName("mydropdown").classList.toggle("show");
+// }
+// window.onclick = function(e) {
+//   if (!e.target.matches('#dropbtn')) {
+//     var myDropdown = document.getElementById("mydropdown");
+//       if (myDropdown.classList.contains('show')) {
+//         myDropdown.classList.remove('show');
+//       }
+//   }
+// }
+// $('#mydropdown').dropdown({
+//     on: 'hover'
+//   });
+<!--</script>-->
